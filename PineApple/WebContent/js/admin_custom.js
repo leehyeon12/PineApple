@@ -11,7 +11,7 @@ $(document).ready(function() {
             $(this).next("div").slideToggle("fast");
         }
     });
-	
+	// 첫 커밋
 	//상품 상세보기 hover
 	$('.prod-hover').addClass('prod-none');
 

@@ -1,0 +1,355 @@
+/*관리자메뉴 아코디언*/
+.sub-tit {
+	margin-top:5px;
+}
+
+.accordion_sub .sub-tit a{
+	color:#474c51 !important;
+	font-size:16px;
+}
+
+.accordion_sub .sub-tit a:hover{
+	color: #0e8ce4 !important;
+}
+
+.admin-top{
+	width:200px;
+	padding:20px 0;
+	margin-bottom:5px;
+	background:#0E8CE4;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#068fbd), to(#0E8CE4)); 
+    background-image: -webkit-linear-gradient(#068fbd, #0E8CE4); 
+    background-image:    -moz-linear-gradient(#068fbd, #0E8CE4); 
+    background-image:     -ms-linear-gradient(#068fbd, #0E8CE4);
+    background-image:      -o-linear-gradient(#068fbd, #0E8CE4); 
+    background-image:         linear-gradient(#068fbd, #0E8CE4);      
+	color:#fff;
+	font-weight:bold;
+	font-size:20px;
+	text-align:center;
+}
+
+.admin_menu{
+	width:200px;
+	padding:10px 0;
+	border-bottom:1px solid #dbdbdb;
+}
+
+.menu-arrow{
+	text-align:right;
+	width:50%;
+	position:absolute;
+}
+
+.menu-tit{
+	margin:25px 0;
+	padding:10px 0;
+	font-size:16px;
+}
+
+/*등급 버튼*/
+.grade-bronze{
+	border:1px solid rgba(119,88,67,0.4);
+	background:rgba(119,88,67,0.4);
+	border-radius:3px;
+	padding:3px;
+	font-size:13px;
+	color:#fff;
+	font-weight:bold;
+}
+
+.grade-vvip{
+	border:1px solid rgba(249,224,99,0.9);
+	background:rgba(249,224,99,0.9);
+	border-radius:3px;
+	padding:3px 10px;
+	font-size:13px;
+	color:#fff;
+	font-weight:bold;
+}
+
+/*모달*/
+.modal {
+       text-align: center;
+}
+ 
+@media screen and (min-width: 768px) { 
+       .modal:before {
+               display: inline-block;
+               vertical-align: middle;
+               content: " ";
+               height: 100%;
+       }
+}
+ 
+.modal-dialog {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+}
+
+/*admin-index*/
+
+#align-center{
+    text-align: center;
+   padding-top:70px;
+}
+
+#title{
+   display:inline-block;
+   font-size:35px;
+   font-weight:bold;
+   color:#2D2C2C;
+   padding:10px 50px;
+   margin-bottom:50px;
+}
+
+#mypage_content{
+   display:inline-block;
+   padding:60px 200px;
+   background-color:#F6F6F6;
+   border-radius:1px;
+   color:#2D2C2C;
+   margin-bottom:30px;
+}
+#myshopMain {
+   overflow:hidden;
+   width:960px;
+   margin:20px auto 0;
+   text-align:center;
+}
+#myshopMain .shopMain {
+   float:left;
+   width:220px;
+   height:130px;
+   margin:4px;
+   letter-spacing:-1px;
+   border:1px solid #ddd;
+   padding:0 5px;
+   transition:all 0.1s ease-in-out;
+   -moz-transition:all 0.1s ease-in-out;
+   -webkit-transition:all 0.1s ease-in-out;
+   -o-transition:all 0.1s ease-in-out;
+}
+#myshopMain .shopMain:hover {
+   border:1px solid #aaa !important;
+   padding:0 5px;
+}
+#myshopMain .shopMain:hover h3 a {
+   color:#dd0010;
+}
+#myshopMain .shopMain:hover p span {
+   color:#000;
+}
+#myshopMain .shopMain h3 {
+   padding:5px 0;
+   margin:0 0 5px 0;
+   font-size:11px;
+   font-weight:normal;
+   border-bottom:1px dotted #ddd;
+}
+#myshopMain .shopMain h3 a {
+   font-size:10px;
+   line-height:24px;
+   font-family:'Oswald',sans-serif;
+   color:#333;
+   text-transform:uppercase;
+   letter-spacing:2px;
+}
+#myshopMain .shopMain p {
+   padding:0 5px;
+}
+#myshopMain .shopMain p a {
+   font-size:12px;
+   line-height:18px;
+   color:#8f8f8f;
+   border-bottom: none !important;
+}
+#myshopMain .shopMain p span {
+   width:210px;
+   padding:2px 0 3px;
+   text-align:center;
+   display:inline-block;
+   *display:inline;
+   zoom:1;
+}
+p a:active
+{
+   position: relative;
+}
+p a:hover
+{
+   color: rgba(0,0,0,0);
+   background: rgba(0,0,0,0);
+}
+p a:hover::after
+{
+   opacity: 0.2;
+}
+
+/*thead가 있을 때*/
+table.popTable1{
+   table-layout:fixed;
+   width:100%;
+   font-size:13px;
+   border : 1px solid #dadada;
+}
+
+table.popTable1 th{
+   background:#f2f2f2;
+   text-align:center;
+   padding:8px 5px;
+   border : 1px solid #dadada;
+ }
+
+table.popTable1 td{
+   padding:8px 5px;
+   border : 1px solid #dadada;
+}
+
+table.popTable1 tbody th{
+   background:#fff;
+   border : 1px solid #dadada;
+   text-align:left;
+   font-size:12px;
+}
+
+/*thead가 없을 때*/
+table.popTable2{
+   table-layout:fixed;
+   width:99%;
+   font-size:13px;
+}
+
+table.popTable2 th{
+   background:#f2f2f2;
+   border:1px solid #dadada;
+   text-align:center;
+   padding:8px 5px;
+   font-size:12px;
+ }
+
+table.popTable2 td{
+   padding:8px 5px;
+   border:1px solid #dadada;
+}
+
+table.popTable2 tr.b-top{
+   border-top:1px solid #dadada;
+}
+
+table.popTable2 input{
+	border:1px solid #dadada;
+}
+
+table.popTable2 select{
+	border:1px solid #dadada;
+	margin-left:0 !important;
+	width:130px;
+	color:#343a40;
+	background:url('/SEMI/images/down-arrow.png') no-repeat right 5px center;
+	background-size:10px 10px;
+}
+
+table.popTable2 select option:checked, 
+table.popTable2 select option:hover {    
+    background: #0e8ce4; 
+    color: #fff;
+}
+
+/*popup h3 : 모달창 제목*/
+.popup h3{
+    background: url(/SEMI/images/bl-h3.png) left 3px no-repeat;
+    font-weight: 800;
+    padding: 0 0 0 13px;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+/*관리자 상품 목록*/
+.prod-box{
+	margin: 30px;
+    border: 1px solid #dadada;
+    border-radius: 7px;
+    background: rgba(234,234,234,0.3);
+}
+
+.prod-img-box{
+	width:100%;
+	margin-top: 10px;
+	border:1px solid #dadada;
+	border-radius: 7px;
+	background:#fff;
+	text-align:center;
+}
+
+.prod-img-box img{
+	width:180px;
+	height:160px;
+}
+
+.prod-text-box {
+	margin-top:13px;
+	margin-bottom:5px;
+}
+
+.prod-text-box h5{
+	text-align:center;
+}
+
+.origin-price span{
+	font-weight:500;
+	color:#0e8ce4;
+}
+
+.selling-price span{
+	color:#828282;
+}
+
+.prod-none{
+	display:none;
+}
+
+.prod-hover{
+	position:absolute;
+    left: 0;
+    top: 0;
+    width:218px;
+	height:272px;
+    background-color: rgba(54,66,72,0.5);
+    border-radius: 7px;
+}
+
+.prod-hover span{
+	font-size: 16px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    color: #fff;
+    font-weight:500;
+    border: 1.3px solid #fff;
+    width: 100px;
+    height: 43px;
+    line-height: 45px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.nav-item a{
+	color:#343a40;
+	font-weight:600;
+	margin-right:10px;
+	font-size:15px;
+}
+
+.nav-item a:hover{
+	color:#0e8ce4;
+}
+
+/*색상선택 모달창*/
+td.color-code:hover{
+    background-color: rgba(54,66,72,0.3);
+}

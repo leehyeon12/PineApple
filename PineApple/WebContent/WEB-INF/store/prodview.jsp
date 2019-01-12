@@ -146,7 +146,7 @@
 							<p>
 								<%--제품설명 들어가는 칸 --%>
 								<%-- ${productDetail.content} --%>
-
+								${productDetail[0].content}
 							</p>
 						</div>
 					</div>

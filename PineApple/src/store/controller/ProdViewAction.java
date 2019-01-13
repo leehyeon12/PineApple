@@ -1,5 +1,6 @@
 package store.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,8 +20,10 @@ public class ProdViewAction extends AbstractController {
 		
 		InterStoreDAO sdao = new StoreDAO();
 		List<StoreVO> productDetail = sdao.selectByCategoryCode(idx);
+	//	List<HashMap<String, String>> mtList = sdao.selectMtCode(mtName); 
 		
-		System.out.println(productDetail);
+		req.setAttribute("idx", idx);
+	//	System.out.println(productDetail);
 		req.setAttribute("productDetail", productDetail);
 		
 		super.setRedirect(false);

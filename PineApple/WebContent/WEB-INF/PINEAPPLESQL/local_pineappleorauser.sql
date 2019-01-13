@@ -309,11 +309,14 @@ create table pa_cartList
 ,fk_userid varchar2(20) not null -- 아이디(FK)
 ,fk_pnum number not null -- 제품번호(FK?????) 
 ,oqty number not null -- 주문 수량 
+,ramOption varchar2(50) not null
+,ssdOption varchar2(50) not null
+,windowOption varchar2(50) not null
 ,constraint PK_pa_cartList primary key(cartNo)              
 ,constraint FK_pa_cartList_fk_userid foreign key(fk_userid)
-                                        references semi_user(userid)
+                                        references  pa_user(userid)
 ,constraint FK_pa_cartList_fk_pnum foreign key(fk_pnum)
-                                    references semi_product(pnum)(?????)
+                                    references pa_product(idx)
 );
 
 --  시퀀스 생성
@@ -324,6 +327,62 @@ nomaxvalue
 nominvalue
 nocycle
 nocache;
+
+
+insert into pa_cartList(cartNo, fk_userid, fk_pnum, oqty, ramOption, ssdOption, windowOption)
+values(seq_pa_cartList_cartNo.nextval, 'hongkd', 1, 1, 'R2', 'S1', 'W1');
+
+commit;
+
+select cartno, fk_userid, fk_pnum, oqty, ramoption, ssdoption, windowoption, gradecode_fk, A.name, brname, P.name, cpu, inch, ramname, storagename, osname, price, saleprice, image1, pqty, status
+from
+(select cartno, fk_userid, fk_pnum,oqty, ramoption, ssdoption, windowoption, gradecode_fk, name
+from pa_cartList C join pa_user U
+on C.fk_userid = U.userid) A join pa_product P
+on A.fk_pnum = P.idx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------

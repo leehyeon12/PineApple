@@ -105,7 +105,16 @@
 		            $(".section > div > input").val("1");
 		        }
 		    })                        
-		}) 
+		});
+		
+		function goCart() {
+			
+			var frm = document.cartFrm;
+			frm.method = "POST";
+			frm.action = "cartAdd.do";
+			frm.submit();
+			
+		}
 	</script>
 	
 <!-- ***** header 시작 ***** -->
@@ -132,60 +141,51 @@
 				<!-- Selected Image -->
 				<div class="col-lg-5 order-lg-2 order-1">
 					<div class="image_selected">
-						<img src="images/${productDetail[0].image1}" alt="">
+						<img src="images/${productDetail[0].image1}" />
 					</div>
 				</div>
 	
 				<!-- Description -->
 				<div class="col-lg-5 order-3">
-					<div class="product_description">
-						<div class="product_category">${productDetail[0].categoryCode_fk}</div>
-						<div class="product_name">${productDetail[0].name}</div>
-	
-						<div class="product_text">
-							<p>
-								<%--제품설명 들어가는 칸 --%>
-								<%-- ${productDetail.content} --%>
-								${productDetail[0].content}
-							</p>
+					<form name="cartFrm">
+						<div class="product_description">
+							<div class="product_category">${productDetail[0].categoryCode_fk}</div><%-- <input type="hidden" name="categoryCode_fk" value="${productDetail[0].categoryCode_fk}" /> --%>
+							<div class="product_name">${productDetail[0].name}</div><%-- <input type="hidden" name="name" value="${productDetail[0].name}" />	 --%>
+							<div class="product_text">
+								<p>
+									<%--제품설명 들어가는 칸 --%>
+									<%-- ${productDetail.content} --%>
+									${productDetail[0].content}
+								</p>
+							</div>
 						</div>
-					</div>
-					<br /> <br />
-					<form>
-	
-						<div style="margin-left: 30px; border: 0px solid gray;">
+						<br/> <br/>
+					
+						<div style="margin-left: 30px; border: 0px solid gray;">						
 							<div>
-								<h4 style="display: inline; margin: 4px;"> <label   
-									for="sel0"><small>수량</small>&nbsp;: </label> 
-								</h4> <input class="form-control"
-									style="margin-left: 5px; width: 65px; display: inline-block;"
-									type="number" name="quantity" id="sel0" min="1" max="99"
-									value="1" />
-								<div class="section">
-									<h4 class="title-attr" style="margin-top: 15px;">
-										<small>COLOR</small>
-									</h4>
-									<div >
-									<%-- 색깔을 DB에 입력할땐 무조건 7자리 코드 + 색깔명으로 입력할것 --%>
-										<div class="attr color" style="width: 25px; background:#5a5a5a;"></div>
-										<div class="attr color" style="width: 25px; background:#ffffff;"></div>
-									</div>
-									<input type="hidden" name="color" id="color" value=""/>  
-								</div>
-	
-								
+								<h4 style="display: inline; margin: 4px;"><label for="sel0"><small>수량</small>&nbsp;:</label></h4> 
+								<input class="form-control"
+									   style="margin-left: 5px; width: 65px; display: inline-block;"
+									   type="number" name="oqty" id="sel0" min="1" max="99"
+									   value="1" />															
 							</div>
 	
 							<div style="margin-top: 10px;">
+							
 								<div class="section" style="padding-bottom: 5px;">
 									<h4 class="title-attr">
 										<small>RAM</small>
 									</h4>
 									<div>
-										<div class="attr2 ram" >8 GB</div>
-										<div class="attr2 ram" >16 GB</div>
-										<div class="attr2 ram" >32 GB</div>
+									<!-- 
+										<div class="attr2 ram">4 GB<input type="hidden" name="ram1" value="R1"></div>
+										<div class="attr2 ram" >8 GB<input type="hidden" name="ram2" value="R2"></div>
 										<input type="hidden" name="ram" id="ram" value="" />
+									 -->
+									 	<select name="ramOption">
+									 		<option value="R1">4 GB</option>
+									 		<option value="R2">8 GB</option>
+									 	</select>
 									</div>
 								</div>
 							
@@ -194,28 +194,48 @@
 										<small>DISK</small>
 									</h4>
 									<div>
+									<!-- 
 										<h6 class="title-attr" style="margin-right:10px;"><small>HDD</small></h6>
 										<div class="attr2 HDD">512 GB</div> 
 										<div class="attr2 HDD">1 TB</div><h4 style="font-weight: lighter; margin-right:5px;">/</h4>
 										<h6 class="title-attr" style="margin-right:10px;"><small>SSD</small></h6>
-										<div class="attr2 SSD">256 GB</div>
-										<div class="attr2 SSD">512 GB</div>
-										<input type="hidden" name="disk" value="" id="disk"/>
+										<div class="attr2 SSD">128 GB<input type="hidden" name="ssd1" value="S1"></div>
+										<div class="attr2 SSD">256 GB<input type="hidden" name="ssd2"  value="S2"></div>
+										<input type="hidden" name="disk" value="" id="disk"/> 
+									-->
+									<select name="ssdOption">
+									 		<option value="S1">128 GB</option>
+									 		<option value="S2">256 GB</option>
+								 	</select>
 									</div>
 								</div>
 								
-							</div>
-	
+								<div class="section" style="padding-bottom: 5px;">
+									<h4 class="title-attr">
+										<small>OS</small>
+									</h4>
+									<div>
+									<!-- 	
+										<div class="attr2 ram">Windows 10<input type="hidden" name="os1" value="W1"></div>
+										<input type="hidden" name="ram" id="ram" value="" />
+									 -->
+									 <select name="windowOption">
+									 		<option value="W1">Windows 10</option>
+								 	</select>
+									</div>
+								</div>
+								
+							</div>	
 						</div>
-	
+						
+						<input type="hidden" name="idx" value="${idx}" />
+						</form>
 						<div class="button_container" style="margin-left: 24px;">
-							<button type="button" class="button cart_button">Add to
+							<button type="button" class="button cart_button" onclick="goCart();">Add to
 								Cart</button>
 							<button type="button" class="button cart_button">Purchase</button>
 						</div>
-	
-					</form>
-	
+
 				</div>
 	
 			</div>

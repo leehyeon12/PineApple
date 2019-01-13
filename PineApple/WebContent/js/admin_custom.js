@@ -16,7 +16,7 @@ $(document).ready(function() {
 	$('.prod-hover').addClass('prod-none');
 
 	$('.prod-box').hover(function(){
-		var num = $('.prod-box').index(this);
+		var num = $('.prod-box').index(this); console.log(num);
 		$('.prod-box a').eq(num).removeClass('prod-none');
 	},function(){
 		$('.prod-hover').addClass('prod-none');

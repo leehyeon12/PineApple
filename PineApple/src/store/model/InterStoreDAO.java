@@ -26,5 +26,7 @@ public interface InterStoreDAO {
 	
 	// === *** 테이블 pa_product 에서  데이터를 가져오는(select) 추상 메소드 *** // 
 	List<StoreVO> getProductList() throws SQLException;
+
+	int insertCartList(HashMap<String, String> map) throws SQLException;
 	
 } // end of interface InterStoreDAO

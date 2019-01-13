@@ -392,6 +392,84 @@ public class StoreDAO implements InterStoreDAO {
 	}
 
 
+	// **** 장바구니 담기를 해주는 메소드 생성하기 **** //
+	@Override
+	public int insertCartList(HashMap<String, String> map) 
+		throws SQLException {
+
+		int result = 0;
+		
+		try {
+			conn = ds.getConnection(); // #장바구니 비우기 또는 해당 제품을 주문하는 순간 장바구니에서 없어져 버린다.(전제조건)
+
+			/*
+			 	먼저 장바구니 테이블(jsp_cart)에 새로운 제품을 넣는 것인지,
+			 	아니면 또 다시 제품을 추가로 더 구매하는 것인지 알기 위해서 
+			 	사용자가 장바구니에 넣으려고 하는 제품번호가 장바구니 테이블에 
+			 	이미 있는지 없는지 먼저 장바구니 번호(cartno)의 값을 알아온다 
+			 	
+			 	----------------------------------------
+			 	cartno  fk_userid  fk_pnum  oqty  status
+			 	----------------------------------------
+			 	   1	  leess		  7		  2		1
+			 	   2	  hongks	  7		  5		1	
+			 	   3	  leess	      6		  3	  	1 #만약 이렇게 주문이 추가된다면, 4	  leess		  7		 10		1	
+			 */
+			
+			String sql = " select cartNo " // #있으면, 기존 제품이 있는데 추가(update)를 하겠다. 없으면 insert
+					   + " from pa_cartList "
+					// + " where status = 1 and "
+					   + " where fk_userid = ? and "
+					   + " fk_pnum = ? ";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, map.get("FK_USERID"));
+			pstmt.setString(2, map.get("IDX"));
+			
+			rs = pstmt.executeQuery(); // #rs가 있을수도 없을 수도, 있으면 딱 한 개 고유하니까
+			
+			if( rs.next() ) {
+				// 이미 장바구니 테이블에 담긴 제품이라면
+				// update 해주어야 한다.
+				
+				int cartNo = rs.getInt("cartNo");
+				
+				sql = " update jsp_cart set oqty = oqty + ? "
+					+ " where cartNo = ? ";
+				
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, Integer.parseInt(map.get("OQTY")));
+				pstmt.setInt(2, cartNo);
+				
+				result = pstmt.executeUpdate();
+			}
+			else {
+				// 장바구니 테이블에 없는 제품이라면
+				// insert 해준다.
+				
+				sql = "insert into pa_cartList(cartNo, fk_userid, fk_pnum, oqty, ramOption, ssdOption, windowOption)\n"
+					+ "values(seq_pa_cartList_cartNo.nextval, ?, ?, to_number(?), ?, ?, ?)"; // #?자체가 스트링 타입인데 어차피 숫자밖에 안들어온다. 안써도 상관없지만 찝찝하면 해라. 문자를 숫자로 바꿔주는 오라클 함수 to_number
+				
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, map.get("FK_USERID"));
+				pstmt.setString(2, map.get("IDX"));
+				pstmt.setString(3, map.get("OQTY"));
+				pstmt.setString(4, map.get("RAMOPTION"));
+				pstmt.setString(5, map.get("SSDOPTION"));
+				pstmt.setString(6, map.get("WINDOWOPTION"));
+				
+				result = pstmt.executeUpdate();
+			}
+			
+		} finally {
+			close();
+		} // end of try ~ finally
+		
+		return result;
+		
+	}
+
+
 
 
 

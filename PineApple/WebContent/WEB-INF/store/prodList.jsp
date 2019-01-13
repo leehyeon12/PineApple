@@ -278,16 +278,18 @@
 						<div style="margin-top: 20px;">
 							<div class="row">
 								<div class="col-md-5">
-									<a href="prodView.do?idx=${svo.idx}"> <img class="img-fluid rounded mb-3 mb-md-0"
+									<a href="prodView.do?idx=${svo.idx}"><img class="img-fluid rounded mb-3 mb-md-0"
 										src="/SEMI/images/${svo.image1}" alt=""
 										style="width: 300px; height: 200px;">
 									</a>
 								</div>
 								<div class="col-md-7">
+								<a href="prodView.do?idx=${svo.idx}">
 									<h3>${svo.name}</h3>
+								</a>
 									<p>${svo.content}</p>
 									<h5>${svo.price}</h5>
-									<p>${pvo.saleprice }</p>
+									<p>${pvo.saleprice}</p>
 									<a class="btn btn-primary" href="#">장바구니</a> <a
 										class="btn btn-primary" href="#">구매하기</a>
 								</div>

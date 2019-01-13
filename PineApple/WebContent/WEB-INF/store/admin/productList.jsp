@@ -34,7 +34,7 @@
 <style type="text/css">
 .btn-box{
 	text-align:right;
-	position:absolute;
+	position:relative;
 	right:15px;
 }
 

@@ -1215,7 +1215,7 @@ select option
 .cart_section
 {
 	width: 100%;
-	padding-top: 93px;
+	/* padding-top: 93px; */ 
 	padding-bottom: 111px;
 }
 .cart_title

@@ -16,6 +16,7 @@ import javax.sql.DataSource;
 
 import jdbc.util.AES256;
 import my.util.MyKey;
+import user.model.UserVO;
 
 public class StoreDAO implements InterStoreDAO {
 
@@ -416,9 +417,8 @@ public class StoreDAO implements InterStoreDAO {
 			 	   3	  leess	      6		  3	  	1 #만약 이렇게 주문이 추가된다면, 4	  leess		  7		 10		1	
 			 */
 			
-			String sql = " select cartNo " // #있으면, 기존 제품이 있는데 추가(update)를 하겠다. 없으면 insert
+			String sql = " select cartNo " 
 					   + " from pa_cartList "
-					// + " where status = 1 and "
 					   + " where fk_userid = ? and "
 					   + " fk_pnum = ? ";
 			
@@ -426,40 +426,40 @@ public class StoreDAO implements InterStoreDAO {
 			pstmt.setString(1, map.get("FK_USERID"));
 			pstmt.setString(2, map.get("IDX"));
 			
-			rs = pstmt.executeQuery(); // #rs가 있을수도 없을 수도, 있으면 딱 한 개 고유하니까
+			rs = pstmt.executeQuery();	
+			rs.next(); 
+			int cartNo = rs.getInt("cartNo");
+				
+
+			sql = "merge into pa_cartList\n"
+			    + "using dual\n"
+				+ "on(fk_userid = ? and\n"
+			    + "   fk_pnum = ? and\n"
+				+ "   ramOption = ? and\n"
+			    + "   ssdOption = ? and\n"
+				+ "   windowOption = ?)\n"
+			    + "when matched then update set oqty = oqty + to_number(?)\n"
+				+ "                  where cartNo = ?\n"
+			    + "when not matched then insert (cartNo, fk_userid, fk_pnum, oqty, ramOption, ssdOption, windowOption)\n"
+				+ "values(seq_pa_cartList_cartNo.nextval, ?, ?, to_number(?), ?, ?, ?)";
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, map.get("FK_USERID"));
+			pstmt.setString(2, map.get("IDX"));
+			pstmt.setString(3, map.get("RAMOPTION"));
+			pstmt.setString(4, map.get("SSDOPTION"));
+			pstmt.setString(5, map.get("WINDOWOPTION"));
+			pstmt.setString(6, map.get("OQTY"));
+			pstmt.setInt(7, cartNo);
 			
-			if( rs.next() ) {
-				// 이미 장바구니 테이블에 담긴 제품이라면
-				// update 해주어야 한다.
-				
-				int cartNo = rs.getInt("cartNo");
-				
-				sql = " update jsp_cart set oqty = oqty + ? "
-					+ " where cartNo = ? ";
-				
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, Integer.parseInt(map.get("OQTY")));
-				pstmt.setInt(2, cartNo);
-				
-				result = pstmt.executeUpdate();
-			}
-			else {
-				// 장바구니 테이블에 없는 제품이라면
-				// insert 해준다.
-				
-				sql = "insert into pa_cartList(cartNo, fk_userid, fk_pnum, oqty, ramOption, ssdOption, windowOption)\n"
-					+ "values(seq_pa_cartList_cartNo.nextval, ?, ?, to_number(?), ?, ?, ?)"; // #?자체가 스트링 타입인데 어차피 숫자밖에 안들어온다. 안써도 상관없지만 찝찝하면 해라. 문자를 숫자로 바꿔주는 오라클 함수 to_number
-				
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, map.get("FK_USERID"));
-				pstmt.setString(2, map.get("IDX"));
-				pstmt.setString(3, map.get("OQTY"));
-				pstmt.setString(4, map.get("RAMOPTION"));
-				pstmt.setString(5, map.get("SSDOPTION"));
-				pstmt.setString(6, map.get("WINDOWOPTION"));
-				
-				result = pstmt.executeUpdate();
-			}
+			pstmt.setString(8, map.get("FK_USERID"));
+			pstmt.setString(9, map.get("IDX"));
+			pstmt.setString(10, map.get("OQTY"));
+			pstmt.setString(11, map.get("RAMOPTION"));
+			pstmt.setString(12, map.get("SSDOPTION"));
+			pstmt.setString(13, map.get("WINDOWOPTION"));
+			
+			result = pstmt.executeUpdate();
 			
 		} finally {
 			close();
@@ -467,6 +467,118 @@ public class StoreDAO implements InterStoreDAO {
 		
 		return result;
 		
+	}
+
+
+	// *** 페이징 처리 하기 이전의 장바구니 목록 보여주는 메소드 생성하기 *** //
+	@Override
+	public List<CartVO> getCartList(String userid) 
+		throws SQLException {
+		
+		List<CartVO> cartList = null;
+		
+		try {
+			conn = ds.getConnection();
+			
+			String sql = "select cartno, fk_userid, fk_pnum, oqty, ramoption, ssdoption, windowoption"
+					   + "	   , gradecode_fk, A.name, brname, P.name AS pname, cpu, inch, ramname, storagename, osname"
+					   + "	   , price, saleprice, image1, pqty, status\n"
+					   + "from\n"
+					   + "(select cartno, fk_userid, fk_pnum,oqty, ramoption, ssdoption, windowoption, gradecode_fk, name\n"
+					   + "from pa_cartList C join pa_user U\n"
+					   + "on C.fk_userid = U.userid "
+					   + "where C.fk_userid = ?) A join pa_product P\n"
+					   + "on A.fk_pnum = P.idx\n";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userid);
+			
+			rs = pstmt.executeQuery();
+			
+			int cnt = 0;
+			while( rs.next() ) {
+				cnt++;
+				
+				if(cnt == 1) {
+					cartList = new ArrayList<CartVO>();
+				}
+				
+				int cartno = rs.getInt("cartno");
+				String fk_userid = rs.getString("fk_userid");
+				int fk_pnum = rs.getInt("fk_pnum");
+				int oqty = rs.getInt("oqty");
+				String ramOption = rs.getString("ramoption");
+				String ssdOption = rs.getString("ssdoption");				
+				String windowOption = rs.getString("windowoption");
+				String gradeCode_fk = rs.getString("gradecode_fk");
+				String name = rs.getString("name");
+				String brName = rs.getString("brname");
+				String pname = rs.getString("pname");
+				String cpu = rs.getString("cpu");			
+				String inch = rs.getString("inch");
+				String ramName = rs.getString("ramname");
+				String storageName = rs.getString("storagename");
+				String osName = rs.getString("osname");
+				int price = rs.getInt("price");
+				int saleprice = rs.getInt("saleprice");
+				String image1 = rs.getString("image1");
+				int pqty = rs.getInt("pqty");
+				String status = rs.getString("status");
+			
+				UserVO useritem = new UserVO();
+				useritem.setGradeCode_fk(gradeCode_fk);
+				useritem.setName(name);
+				
+				StoreVO storeitem = new StoreVO();	
+				storeitem.setBrName(brName);
+				storeitem.setName(pname);
+				storeitem.setCpu(cpu);
+				storeitem.setInch(inch);
+				storeitem.setRamName(ramName);
+				storeitem.setStorageName(storageName);
+				storeitem.setOsName(osName);
+				storeitem.setPrice(price);
+				storeitem.setSaleprice(saleprice);
+				storeitem.setImage1(image1);
+				storeitem.setPqty(pqty);
+				storeitem.setStatus(status);
+				
+			/*	
+				item.setIdx(fk_pnum);
+				item.setName(pname);; // #장바구니에는 pname이 없다.(ProductVO에 있는 것)
+				item.setPcategory_fk(pcategory_fk); // #join해서 읽어온 게 있다.
+				item.setPimage1(pimage1);
+				item.setPrice(price);
+				item.setSaleprice(saleprice);
+				item.setPoint(point);
+						
+				// !!!!!!!! 중요함 !!!!!!!! //
+				item.setTotalPriceTotalPoint(oqty); // #주문량 넣어줘야만 실제로 주문하는 순간, TotalPrice 및 TotalPoint와 코인액 포인트 있나 없나 비교 가능! 비교되면 또 차감해야되지
+				// !!!!!!!! 중요함 !!!!!!!! //
+				
+				item.setPqty(pqty);
+			*/	
+				CartVO cvo = new CartVO(); // #제품이름과 이미지는 안담았다. 여기에
+				cvo.setCartNo(cartno); // #insert되어진 것을 join해서 읽어오고 있다.
+				cvo.setFk_userid(fk_userid);
+				cvo.setFk_pnum(String.valueOf(fk_pnum));
+				cvo.setOqty(oqty);
+				cvo.setRamOption(ramOption);
+				cvo.setSsdOption(ssdOption);
+				cvo.setWindowOption(windowOption);
+				
+				cvo.setUseritem(useritem); // #item, 즉 ProductVO를 담아야 한다. ProductVO를 하나 만들어야지
+				cvo.setStoreitem(storeitem);
+				
+				cartList.add(cvo);
+				
+			} // end of while
+			
+		} finally {
+			close();
+		} // end of try ~ finally		
+		
+		return cartList;
 	}
 
 

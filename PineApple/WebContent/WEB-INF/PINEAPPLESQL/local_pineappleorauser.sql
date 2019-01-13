@@ -289,6 +289,7 @@ values(seq_pa_product_idx.nextval, '200000', 'Br1', 'LG전자', '올뉴그램', 
 
 commit;
 
+-- 해당 테이블 select
 select idx
      , (select c.categoryCode from pa_category c, pa_product p where c.categoryCode = p.categoryCode_fk) as categoryCode
      , (select b.brCode from pa_brand b, pa_product p where b.brCode = p.brCode_fk) as brCode
@@ -328,18 +329,37 @@ nominvalue
 nocycle
 nocache;
 
-
+-- 해당 테이블 insert
 insert into pa_cartList(cartNo, fk_userid, fk_pnum, oqty, ramOption, ssdOption, windowOption)
 values(seq_pa_cartList_cartNo.nextval, 'hongkd', 1, 1, 'R2', 'S1', 'W1');
 
 commit;
 
+-- 해당 테이블 select 1
 select cartno, fk_userid, fk_pnum, oqty, ramoption, ssdoption, windowoption, gradecode_fk, A.name, brname, P.name, cpu, inch, ramname, storagename, osname, price, saleprice, image1, pqty, status
 from
 (select cartno, fk_userid, fk_pnum,oqty, ramoption, ssdoption, windowoption, gradecode_fk, name
 from pa_cartList C join pa_user U
 on C.fk_userid = U.userid) A join pa_product P
-on A.fk_pnum = P.idx
+on A.fk_pnum = P.idx;
+
+-- 해당 테이블 select 2
+merge into pa_cartList
+using dual
+on(fk_userid ='admin' and
+   fk_pnum = '2' and
+   ramOption = 'R1' and
+   ssdOption = 'S1' and
+   windowOption = 'W1')
+when matched then update set oqty = oqty + 2
+                  where cartNo = '3'
+when not matched then insert (cartNo, fk_userid, fk_pnum, oqty, ramOption, ssdOption, windowOption)
+values(seq_pa_cartList_cartNo.nextval, 'admin', 1, 1, 'R2', 'S1', 'W1');
+
+
+
+
+
 
 
 

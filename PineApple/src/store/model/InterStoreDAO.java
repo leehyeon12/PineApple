@@ -27,6 +27,10 @@ public interface InterStoreDAO {
 	// === *** 테이블 pa_product 에서  데이터를 가져오는(select) 추상 메소드 *** // 
 	List<StoreVO> getProductList() throws SQLException;
 
+	// **** 장바구니 담기를 해주는 추상 메소드 **** //
 	int insertCartList(HashMap<String, String> map) throws SQLException;
+
+	// *** 페이징 처리 하기 이전의 장바구니 목록 보여주는 추상 메소드 *** //
+	List<CartVO> getCartList(String userid) throws SQLException;
 	
 } // end of interface InterStoreDAO

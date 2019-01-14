@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
     
 <!-- ***** head 시작 ***** -->   
 <jsp:include page="../head.jsp"/>
@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="styles/cart_styles.css">
 <link rel="stylesheet" type="text/css" href="styles/cart_responsive.css">
-<style type="text/css">
+<style>
 input[type="submit"], button {
     border: 0;
     padding: 0;
@@ -611,19 +611,7 @@ a {
                         <li class="last"><span class="step_num tx_num">3 </span> 주문완료</li>
                      </ul>
                   </div>
-			                  
-					<c:if test="${cartList == null || empty cartList}">
-						<tr>
-							<td colspan="6" align="center">
-								<span style="color: red; font-weight: bold;">
-								장바구니에 담긴 상품이 없습니다.
-								</span>
-							</td>	
-						</tr>
-					</c:if>	                  
                   
-                  
-                  <c:if test="${cartList != null && not empty cartList}">
                   <table class="tbl_prd_list">
                      <colgroup>
                         <col style="width:40px">
@@ -648,7 +636,8 @@ a {
                      <tbody>
                      
                      
-                     	<c:forEach var="cartvo" items="cartList"> 
+                     
+                  <c:forEach var="cartvo" items="cartList"> 
                         <tr>
                            <td>
                               <div class="tbl_cell w40">
@@ -719,8 +708,85 @@ a {
                               </div>
                            </td>
                         </tr>
-                        </c:forEach>
-                        
+                        </c:forEach>   
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                     
+                        <tr>
+                           <td>
+                              <div class="tbl_cell w40">
+                                 <input type="checkbox" checked="checked" id="inp_prd_chk1" name="s_checkbox1">
+                              </div>
+                           </td>
+                           <td>
+                              <div class="tbl_cell w390">
+                                 <a class="prd_img" href="#" style="position: absolute; padding-top: 10px;">   
+                                    <img class="completed-seq-lazyload" id="cart_prodImg" alt="상품이미지" src="https://image.oliveyoung.co.kr/uploads/images/goods/220/10/0000/0001/A00000001332201ko.jpg?l=ko">
+                                 </a>
+                                 <div class="prd_info">
+                                    <a class="prd_name" href="">
+                                       <span id="brandNm">더블유드레스룸 </span>
+                                       <p id="goodsNm">W.DRESSROOM 네추럴 소이 캔들 No.272 로즈부케 200g </p>
+                                    </a>
+                                 </div>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="tbl_cell w110">
+                                 <span class="cur_price"><span class="tx_num">19,800</span>원</span>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="tbl_cell w100">
+                                 <div class="prd_cnt">
+                                    <select class="amount" name="s_amount">
+                                       <option value="1" selected="selected">1</option>
+                                       <option value="2">2</option>
+                                       <option value="3">3</option>
+                                       <option value="4">4</option>
+                                       <option value="5">5</option>
+                                       <option value="6">6</option>
+                                       <option value="7">7</option>
+                                       <option value="8">8</option>
+                                       <option value="9">9</option>
+                                       <option value="10">10</option>
+                                       <option value="10+">10+</option>
+                                    </select>               
+                                 </div>
+                                 <button type="button" class="btnSmall wGray" style="display: none;" name="btnQtyMod"><span>변경</span></button>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="tbl_cell w110">
+                                 <span class="org_price">
+                                 </span>
+                                 <span class="pur_price"><span class="tx_num">19,800</span>원</span>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="tbl_cell w120  ">
+                                 <p class="prd_delivery">
+                                 <strong id="deliStrongText">
+                                    2,500
+                                    <span class="ex">도서·산간 제외</span>   
+                                 </strong>
+                                 </p>
+                              </div>
+                           </td>
+                           <td>
+                              <div class="tbl_cell w150">
+                                 <div class="btn_group">
+                                    <button type="button" class="btnSmall wGreen" name="btn_buy"><span>바로구매</span></button><br/>
+                                    <button type="button" class="btnSmall wGray delete" name="btnDelete"><span>삭제</span></button><!-- 버튼 공간(스페이스바)없이 붙여주세요. -->
+                                 </div>
+                              </div>
+                           </td>
+                        </tr>
                         
                      </tbody>
                   </table>
@@ -754,7 +820,7 @@ a {
                   <div class="cart_comment">
                      <p>장바구니 상품은 90일동안, 판매종료 된 상품은 10일동안 보관됩니다.</p>
                   </div>
-                  </c:if>	         
+                  
                </div>
             </div>
          </div>

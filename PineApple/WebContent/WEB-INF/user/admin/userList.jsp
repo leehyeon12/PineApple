@@ -193,7 +193,23 @@
 										<td style="text-align:center;">${uservo.userid}</td>
 										<td style="text-align:center;">${uservo.email}</td>
 										<td style="text-align:center;">${uservo.phone}</td>
-										<td style="text-align:center;"><span class="grade-bronze">${uservo.gradeCode_fk}</span></td>
+										<td style="text-align:center;">
+											<c:if test="${uservo.gradeCode_fk == '0' }">
+											<span class="grade-bronze">${uservo.gradeCode_fk}</span>
+											</c:if>
+											<c:if test="${uservo.gradeCode_fk == '1' }">
+											<span class="grade-silver">${uservo.gradeCode_fk}</span>
+											</c:if>
+											<c:if test="${uservo.gradeCode_fk == '2' }">
+											<span class="grade-gold">${uservo.gradeCode_fk}</span>
+											</c:if>
+											<c:if test="${uservo.gradeCode_fk == '3' }">
+											<span class="grade-vip">${uservo.gradeCode_fk}</span>
+											</c:if>
+											<c:if test="${uservo.gradeCode_fk == '4' }">
+											<span class="grade-vvip">${uservo.gradeCode_fk}</span>
+											</c:if>
+											</td>
 										<td style="text-align:center;">${uservo.registDate}</td>
 									</tr>
 
@@ -208,7 +224,7 @@
 										<li><a href="#">2</a></li>
 										<li><a href="#">3</a></li>
 										<li><a href="#">...</a></li>
-										<li><a href="#">21</a></li>
+										<li><a href="#">10</a></li>
 									</ul>
 									<div class="page_next d-flex flex-column align-items-center justify-content-center"><i class="fas fa-chevron-right"></i></div>
 								</div>

@@ -38,7 +38,7 @@
 				<tbody>
 				<tr>
 					<th scope="row">주문자명</th>
-					<td><input type="text" id="ordManNm" name="ordManNm" value="주문자이름" class="inpH28" title="주문자명을 입력해주세요." this="주문자명은" style="width:200px"></td><!-- id와 label for를 맞춰주세요 (임시로 넣어둠) -->
+					<td><input type="text" id="ordManNm" name="ordManNm" value="홍길동" class="inpH28" title="주문자명을 입력해주세요." this="주문자명은" style="width:200px"></td><!-- id와 label for를 맞춰주세요 (임시로 넣어둠) -->
 				</tr>
 				<tr>
 					<th scope="row">휴대폰</th>
@@ -113,8 +113,8 @@
 							<option value="0507">0507</option>
 
 						</select>
-						 - <input type="text" id="ordManCellTxnoNo" name="ordManCellTxnoNo" value="5555" class="inpH28" title="주문자 휴대폰 번호 가운데 자리를 입력해주세요." this="주문자 휴대폰 번호 가운데 자리는" style="width:90px">
-						 - <input type="text" id="ordManCellEndNo" name="ordManCellEndNo" value="7777" class="inpH28" title="주문자 휴대폰 번호 마지막 4자리를 입력해주세요." this="주문자 휴대폰 번호 마지막 자리는" style="width:90px">
+						 - <input type="text" id="ordManCellTxnoNo" name="ordManCellTxnoNo" value="333" class="inpH28" title="주문자 휴대폰 번호 가운데 자리를 입력해주세요." this="주문자 휴대폰 번호 가운데 자리는" style="width:90px">
+						 - <input type="text" id="ordManCellEndNo" name="ordManCellEndNo" value="4444" class="inpH28" title="주문자 휴대폰 번호 마지막 4자리를 입력해주세요." this="주문자 휴대폰 번호 마지막 자리는" style="width:90px">
 					</td>
 				</tr>
 				<tr>
@@ -122,9 +122,9 @@
 					<td>
 
 
-						<input type="hidden" id="ordManEmailAddr" name="ordManEmailAddr" value="hongkd@nate.com" title="주문자 이메일 주소를 입력해주세요.">
-						<input type="text" id="ordManEmailAddrId" value="lsy9264" class="inpH28" title="주문자 이메일 주소를 입력해주세요." this="주문자 이메일 주소는" style="width:120px"> 
-						@ <input type="text" id="ordManEmailAddrDmn" value="nate.com" class="inpH28" title="이메일도메인을 입력해주세요." this="이메일도메인은" style="width:120px" disabled="">
+						<input type="hidden" id="ordManEmailAddr" name="ordManEmailAddr" value="hongkd@gmail.com" title="주문자 이메일 주소를 입력해주세요.">
+						<input type="text" id="ordManEmailAddrId" value="hongkd" class="inpH28" title="주문자 이메일 주소를 입력해주세요." this="주문자 이메일 주소는" style="width:120px"> 
+						@ <input type="text" id="ordManEmailAddrDmn" value="gmail.com" class="inpH28" title="이메일도메인을 입력해주세요." this="이메일도메인은" style="width:120px" disabled="">
 						<select id="ordManEmailAddrDmn_select" class="selH28" title="주문자 이메일 주소 도메인을 선택해주세요." style="width:120px">
 							<option value="">직접입력</option>
 
@@ -134,11 +134,11 @@
 
 							<option value="hanmail.net">hanmail.net</option>
 
-							<option value="nate.com" selected="selected">nate.com</option>
+							<option value="nate.com" >nate.com</option>
 
 							<option value="yahoo.co.kr">yahoo.co.kr</option>
 
-							<option value="gmail.com">gmail.com</option>
+							<option value="gmail.com" selected="selected">gmail.com</option>
 
 							<option value="hotmail.com">hotmail.com</option>
 
@@ -254,8 +254,8 @@
 							<option value="0507">0507</option>
 
 						</select>
-						 - <input type="text" id="rmitCellTxnoNo_exist" name="rmitCellTxnoNo" value="7777" orgvalue="" class="inpH28" title="연락처1 가운데 자리를 입력해주세요." this="연락처1 가운데 자리는" style="width:90px">
-						 - <input type="text" id="rmitCellEndNo_exist" name="rmitCellEndNo" value="5555" orgvalue="" class="inpH28" title="연락처1 마지막 4자리를 입력해주세요." this="연락처1 마지막 자리는" style="width:90px">
+						 - <input type="text" id="rmitCellTxnoNo_exist" name="rmitCellTxnoNo" value="333" orgvalue="" class="inpH28" title="연락처1 가운데 자리를 입력해주세요." this="연락처1 가운데 자리는" style="width:90px">
+						 - <input type="text" id="rmitCellEndNo_exist" name="rmitCellEndNo" value="4444" orgvalue="" class="inpH28" title="연락처1 마지막 4자리를 입력해주세요." this="연락처1 마지막 자리는" style="width:90px">
 						 <!-- <span class="chk_area"><input type="checkbox" id="chkSafe_exist" name="chkSafe" value="123" /> <label for="chkSafe">안심번호 사용</label></span> -->
 					</td>
 				</tr>
@@ -290,7 +290,7 @@
 				<tr type="new" style="display: none;">
 					<th scope="row">배송지명</th>
 					<td class="imp_data">
-						<input type="text" id="dlvpNm_new" name="dlvpNm" value="" class="inpH28" title="배송지명을 입력해주세요." style="width:200px;" this="배송지명은" disabled="disabled">
+						<input type="text" id="dlvpNm_new" name="dlvpNm" value="회사" class="inpH28" title="배송지명을 입력해주세요." style="width:200px;" this="배송지명은" disabled="disabled">
 					</td>
 				</tr>
 				<!--// 2017-01-18 추가 -->
@@ -511,7 +511,7 @@
  
 			
 			
-			<h2 class="sub-title2">
+			<h2 class="sub-title2" style="font-weight:bold;">
 				파인애플 배송상품
 			
 				 <em class="gift" id="giftNoti2" style="display: none;">* 증정품은 결제 시 확인하실 수 있습니다.</em>
@@ -551,12 +551,12 @@
 							<div class="tbl_cell w700"><!-- 2017-01-24 수정 : 클래스명 변경 -->
 								<div class="prd_info">
 									<div class="prd_img">
-										<img src="https://image.oliveyoung.co.kr/uploads/images/goods/10/0000/0011/A00000011964001ko.jpg?l=ko" alt="장바구니 상품 임시 이미지" onerror="common.errorImg(this);">
+										<img src="/SEMI/images/macbook_pro.png" alt="장바구니 상품 임시 이미지" onerror="common.errorImg(this);">
 									</div>
 									<div class="prd_name">
 		
-										<span>드림웍스</span><!-- 2017-01-26 수정 : 브랜드명 분리 -->
-										<p>[온라인단독] 쿵푸팬더의 후끈후끈 손난로 더블기획(10P+10P)</p>
+										<span>애플</span><!-- 2017-01-26 수정 : 브랜드명 분리 -->
+										<p>2019년 맥북 프로 레티나 [터치바 탑재]</p>
 									</div>
 									<p class="prd_opt">
 		
@@ -575,7 +575,7 @@
 							</div>
 							<div class="tbl_cell w110">
 								<!-- <span class="org_price" style="display: none;"><span class="tx_num" id="normPrc_"></span>원</span> --><!-- 2017-01-24 수정 : 삭제 -->
-								<span class="cur_price"><span class="tx_num">14,400</span>원</span>
+								<span class="cur_price"><span class="tx_num">2,500,000</span>원</span>
 							</div>
 							<div class="tbl_cell w100">1</div>
 							<!-- 2017-01-24 수정 : 삭제 
@@ -589,13 +589,8 @@
 							</div>
 							-->
 							<div class="tbl_cell w110">
-		
-		
-		
-		
-		
-								<span class="org_price"><span class="tx_num" id="normPrc_A000000119640/001">14,400</span>원</span><!-- 2017-01-24 수정 : 추가 -->
-								<span class="pur_price"><span class="tx_num" id="salePrc_A000000119640/001">11,900</span>원</span>
+								<span class="org_price"><span class="tx_num" id="normPrc_A000000119640/001">2,500,000</span>원</span><!-- 2017-01-24 수정 : 추가 -->
+								<span class="pur_price"><span class="tx_num" id="salePrc_A000000119640/001">2,350,000</span>원</span>
 								<input type="hidden" id="orgNormPrc_A000000119640/001" value="14400">
 								<input type="hidden" id="orgSalePrc_A000000119640/001" value="11900">
 								<input type="hidden" id="imdtDscntAmt_A000000119640/001" value="0">
@@ -605,18 +600,11 @@
 					</td>
 				</tr>
 				<!--// 1+1 행사 상품인 경우 -->
-		
 				</tbody>
 			</table>
-		
-	
-				
-			
-
 			<!--// 주문상품정보 -->
 
 			<!-- 증정품 -->
-
 
 			<input type="hidden" id="giftCount" value="0" orgvalue="0">
 			<div id="giftCartNo"></div>
@@ -706,7 +694,7 @@
 <ol>
 	<li>1만원 이상 결제시 사용 가능</li>
 	<li>결제금액의 10% 사용 가능</li>
-	<li>법인/체크/선불/기프트/CJ임직원카드 제외</li>
+	<li>법인/체크/선불/기프트/파인애플임직원카드 제외</li>
 	<li>결제 건당 5,000 M포인트 한도</li>
 	<li>10%에 대한 M포인트 부족 시 보유 포인트만큼 차감</li>
 	<li>페이코/카카오페이 등 간편결제수단 적용시 사용 불가</li>
@@ -849,7 +837,7 @@
 									<th scope="row">입금기한</th>
 									<td>
 										<div>
-											2018.12.08
+											2019.01.19
 										</div>
 									</td>
 								</tr>
@@ -1020,9 +1008,9 @@
 							<div class="other_cash_box">
 								<ul class="info_dot_list type2">
 
-									<li>PAYCO는 NHN엔터테인먼트에서 제공하는 안전한 간편결제 서비스로 올리브영몰에서는 신용카드 결제가 가능합니다.</li>
+									<li>PAYCO는 NHN엔터테인먼트에서 제공하는 안전한 간편결제 서비스로 파인애플에서는 신용카드 결제가 가능합니다.</li>
 									<li>신용카드 등록 시 휴대폰과 카드명의자가 동일해야합니다. (모든 신용/체크카드 가능)</li>
-									<li>PAYCO로 결제 시, 제휴카드 할인(CJ카드, 임직원할인 포함)이 적용되지 않습니다.</li>
+									<li>PAYCO로 결제 시, 제휴카드 할인(임직원할인 포함)이 적용되지 않습니다.</li>
 									<li>무이자할부는 PAYCO 결제창에서 확인하실 수 있습니다.</li>
 								</ul>
 							</div>
@@ -1038,7 +1026,7 @@
 			
 				
 					
-						<p>카카오페이는 주식회사 카카오페이에서 제공하는 안전한 간편결제 서비스로 올리브영몰에서는 신용카드 결제가 가능합니다. </p><p>무이자할부는 카카오페이 모바일 결제창에서 선택하실 수 있습니다. </p><p>휴대폰과 카드명의자가 동일해야 결제 가능합니다.</p><p>카카오페이로 결제 시, 제휴카드 할인/적립(CJ카드, 임직원할인 포함)이 적용되지 않습니다.</p><p>결제 증빙내역은 카카오페이 홈페이지에서 확인 가능합니다.(카카오페이 홈 &gt; 설정 &gt; 결제내역)</p><p>카카오페이 고객센터 : 1644-7405</p>
+						<p>카카오페이는 주식회사 카카오페이에서 제공하는 안전한 간편결제 서비스로 파인애플에서는 신용카드 결제가 가능합니다. </p><p>무이자할부는 카카오페이 모바일 결제창에서 선택하실 수 있습니다. </p><p>휴대폰과 카드명의자가 동일해야 결제 가능합니다.</p><p>카카오페이로 결제 시, 제휴카드 할인/적립(CJ카드, 임직원할인 포함)이 적용되지 않습니다.</p><p>결제 증빙내역은 카카오페이 홈페이지에서 확인 가능합니다.(카카오페이 홈 &gt; 설정 &gt; 결제내역)</p><p>카카오페이 고객센터 : 1644-7405</p>
 					
 				
 			
@@ -1202,7 +1190,7 @@
 					<ul class="total_payment_box">
 						<li>
 							<span class="tx_tit">총 상품금액</span> 
-							<span class="tx_cont"><span class="tx_num">11,900</span>원</span>
+							<span class="tx_cont"><span class="tx_num">2,350,000</span>원</span>
 							<input type="hidden" name="goodsAmt" value="11900">
 						</li>
 						<li>
@@ -1249,7 +1237,7 @@
 						</li>
 						<li class="total">
 							<span class="tx_tit">최종 결제금액</span> 
-							<span class="tx_cont"><span class="tx_num" id="totPayAmt_sum_span">14,400</span>원</span>
+							<span class="tx_cont"><span class="tx_num" id="totPayAmt_sum_span">2,352,500</span>원</span>
 							<input type="hidden" name="remainAmt" value="14400">
 							<input type="hidden" name="ordPayAmt" value="14400">
 							<input type="hidden" name="goodsNm" value="[온라인단독] 쿵푸팬더의 후끈후끈 손난로 더블기획(10P+10P)">

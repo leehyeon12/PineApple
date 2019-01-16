@@ -381,9 +381,9 @@ button.closeBtn:hover{
 						<li class="nav-item"><a href="nav-link" id="warnings" class="active" data-num="1"
 							data-toggle="tab" data-target="#tabone">전체 상품</a></li>
 						<li class="nav-item"><a class="nav-link" href="" id="desktop"
-							data-toggle="tab" data-target="#tabtwo">데스크탑</a></li>
+							data-toggle="tab" data-target="#tabtwo">노트북</a></li>
 						<li class="nav-item"><a class="nav-link" href="" id="laptop"
-							data-toggle="tab" data-target="#tabthree">노트북</a></li>
+							data-toggle="tab" data-target="#tabthree">데스크탑</a></li>
 						<li class="nav-item"><a class="nav-link" href="" id="monitor"
 							data-toggle="tab" data-target="#tabfour">모니터</a></li>
 						<li class="nav-item"><a class="nav-link" href="" id="accessories"
@@ -521,23 +521,34 @@ button.closeBtn:hover{
 								<div class="row" style="margin-left:1.5%;">
 									<div class="col-md-3 prod-box" data-toggle="modal" data-target="#classModal">
 										<div class="prod-img-box">
-											<img src="/SEMI/images/macbook_pro.png">
-										</div>
-										<div class="prod-text-box">
-											<h5>2019년 LG 신상 데스크탑</h5>
-											<div class="origin-price">정가 : <span>1,200,000원</span></div>
-											<div class="selling-price">판매가 : <span>1,050,000원</span></div>
-										</div>
-										<a href="#" class="prod-hover"><span>상세 보기</span></a>
-									</div>
-									<div class="col-md-3 prod-box">
-										<div class="prod-img-box">
 											<img src="/SEMI/images/gram.png">
 										</div>
 										<div class="prod-text-box">
-											<h5>2019년 LG 신상 고성능 데스크탑</h5>
+											<h5>LG 올뉴그램</h5>
 											<div class="origin-price">정가 : <span>1,200,000원</span></div>
 											<div class="selling-price">판매가 : <span>1,050,000원</span></div>
+										</div>
+										<a href="#" class="prod-hover"><span>상세 보기</span></a>
+									</div>
+									<div class="col-md-3 prod-box">
+										<div class="prod-img-box">
+											<img src="/SEMI/images/samsung.jpg">
+										</div>
+										<div class="prod-text-box">
+											<h5>삼성 갤럭시 노트북</h5>
+											<div class="origin-price">정가 : <span>1,100,000원</span></div>
+											<div class="selling-price">판매가 : <span>1,100,000원</span></div>
+										</div>
+										<a href="#" class="prod-hover"><span>상세 보기</span></a>
+									</div>
+									<div class="col-md-3 prod-box">
+										<div class="prod-img-box">
+											<img src="/SEMI/images/renovo.jpg">
+										</div>
+										<div class="prod-text-box">
+											<h5>레노버 노트북</h5>
+											<div class="origin-price">정가 : <span>1,050,000원</span></div>
+											<div class="selling-price">판매가 : <span>1,000,000원</span></div>
 										</div>
 										<a href="#" class="prod-hover"><span>상세 보기</span></a>
 									</div>
@@ -546,7 +557,18 @@ button.closeBtn:hover{
 											<img src="/SEMI/images/macbook_pro.png">
 										</div>
 										<div class="prod-text-box">
-											<h5>2019년 LG 신상 고성능 데스크탑</h5>
+											<h5>맥북 프로 레티나</h5>
+											<div class="origin-price">정가 : <span>2,500,000원</span></div>
+											<div class="selling-price">판매가 : <span>2,350,000원</span></div>
+										</div>
+										<a href="#" class="prod-hover"><span>상세 보기</span></a>
+									</div>
+									<div class="col-md-3 prod-box">
+										<div class="prod-img-box">
+											<img src="/SEMI/images/asus.jpg">
+										</div>
+										<div class="prod-text-box">
+											<h5>ASUS 게이밍 노트북</h5>
 											<div class="origin-price">정가 : <span>1,200,000원</span></div>
 											<div class="selling-price">판매가 : <span>1,050,000원</span></div>
 										</div>
@@ -554,34 +576,12 @@ button.closeBtn:hover{
 									</div>
 									<div class="col-md-3 prod-box">
 										<div class="prod-img-box">
-											<img src="/SEMI/images/gram.png">
+											<img src="/SEMI/images/oldLg.jpg">
 										</div>
 										<div class="prod-text-box">
-											<h5>2019년 LG 신상 고성능 데스크탑</h5>
-											<div class="origin-price">정가 : <span>1,200,000원</span></div>
-											<div class="selling-price">판매가 : <span>1,050,000원</span></div>
-										</div>
-										<a href="#" class="prod-hover"><span>상세 보기</span></a>
-									</div>
-									<div class="col-md-3 prod-box">
-										<div class="prod-img-box">
-											<img src="/SEMI/images/macbook_pro.png">
-										</div>
-										<div class="prod-text-box">
-											<h5>2019년 LG 신상 고성능 데스크탑</h5>
-											<div class="origin-price">정가 : <span>1,200,000원</span></div>
-											<div class="selling-price">판매가 : <span>1,050,000원</span></div>
-										</div>
-										<a href="#" class="prod-hover"><span>상세 보기</span></a>
-									</div>
-									<div class="col-md-3 prod-box">
-										<div class="prod-img-box">
-											<img src="/SEMI/images/macbook_pro.png">
-										</div>
-										<div class="prod-text-box">
-											<h5>2019년 LG 신상 고성능 데스크탑</h5>
-											<div class="origin-price">정가 : <span>1,200,000원</span></div>
-											<div class="selling-price">판매가 : <span>1,050,000원</span></div>
+											<h5>LG그램 구형</h5>
+											<div class="origin-price">정가 : <span>1,050,000원</span></div>
+											<div class="selling-price">판매가 : <span>990,000원</span></div>
 										</div>
 										<a href="#" class="prod-hover"><span>상세 보기</span></a>
 									</div>
@@ -597,7 +597,7 @@ button.closeBtn:hover{
 											<li><a href="#">2</a></li>
 											<li><a href="#">3</a></li>
 											<li><a href="#">...</a></li>
-											<li><a href="#">21</a></li>
+											<li><a href="#">10</a></li>
 										</ul>
 										<div class="page_next d-flex flex-column align-items-center justify-content-center"><i class="fas fa-chevron-right"></i></div>
 									</div>
@@ -832,7 +832,7 @@ button.closeBtn:hover{
 											<li><a href="#">2</a></li>
 											<li><a href="#">3</a></li>
 											<li><a href="#">...</a></li>
-											<li><a href="#">21</a></li>
+											<li><a href="#">10</a></li>
 										</ul>
 										<div class="page_next d-flex flex-column align-items-center justify-content-center"><i class="fas fa-chevron-right"></i></div>
 									</div>
@@ -845,7 +845,7 @@ button.closeBtn:hover{
 						<div class="tab-pane fade" id="tabfive" role="tabpanel">
 							<div class="tab-header">
 								<div class="shop_bar clearfix">
-									<div class="shop_product_count"><span>130</span> 개</div>
+									<div class="shop_product_count"><span>100</span> 개</div>
 									<div class="shop_sorting">
 										<span>정렬 기준:</span>
 										<ul>

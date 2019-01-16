@@ -128,6 +128,24 @@ values('admin', '0', seq_pa_user_idx.nextval, '9695b88a59a1610320897fa84cb7e144c
 
 commit;
 
+insert into pa_user(userid, gradeCode_fk, idx, pwd, name, email, phone, post, addr, addrDetail, birth, gender, sumTotalPoint, sumPurchasePrice, lastLoginDate, lastPwdChangeDate, registDate, uAuth, status)
+values('leehj', '0', seq_pa_user_idx.nextval, '9695b88a59a1610320897fa84cb7e144cc51f2984520efb77111d94b402a8382', '이현재', 'mKW69GEk/R5zCOpWmnCDNQ==', 'WXEtv3m1lrlkG5cjo8kbMw==', '06267', '서울 강남구 강남대로 246', '505호', '1975612', '0', default, default, default, default, default, '0', default);
+
+insert into pa_user(userid, gradeCode_fk, idx, pwd, name, email, phone, post, addr, addrDetail, birth, gender, sumTotalPoint, sumPurchasePrice, lastLoginDate, lastPwdChangeDate, registDate, uAuth, status)
+values('leesy', '1', seq_pa_user_idx.nextval, '9695b88a59a1610320897fa84cb7e144cc51f2984520efb77111d94b402a8382', '이승연', 'mKW69GEk/R5zCOpWmnCDNQ==', 'WXEtv3m1lrlkG5cjo8kbMw==', '06267', '서울 강남구 강남대로 246', '505호', '1975612', '1', default, default, default, default, default, '0', default);
+
+insert into pa_user(userid, gradeCode_fk, idx, pwd, name, email, phone, post, addr, addrDetail, birth, gender, sumTotalPoint, sumPurchasePrice, lastLoginDate, lastPwdChangeDate, registDate, uAuth, status)
+values('leess', '2', seq_pa_user_idx.nextval, '9695b88a59a1610320897fa84cb7e144cc51f2984520efb77111d94b402a8382', '이순신', 'mKW69GEk/R5zCOpWmnCDNQ==', 'WXEtv3m1lrlkG5cjo8kbMw==', '06267', '서울 강남구 강남대로 246', '505호', '1975612', '1', default, default, default, default, default, '0', default);
+
+insert into pa_user(userid, gradeCode_fk, idx, pwd, name, email, phone, post, addr, addrDetail, birth, gender, sumTotalPoint, sumPurchasePrice, lastLoginDate, lastPwdChangeDate, registDate, uAuth, status)
+values('leeh', '3', seq_pa_user_idx.nextval, '9695b88a59a1610320897fa84cb7e144cc51f2984520efb77111d94b402a8382', '이황', 'mKW69GEk/R5zCOpWmnCDNQ==', 'WXEtv3m1lrlkG5cjo8kbMw==', '06267', '서울 강남구 강남대로 246', '505호', '1975612', '1', default, default, default, default, default, '0', default);
+
+insert into pa_user(userid, gradeCode_fk, idx, pwd, name, email, phone, post, addr, addrDetail, birth, gender, sumTotalPoint, sumPurchasePrice, lastLoginDate, lastPwdChangeDate, registDate, uAuth, status)
+values('leesm', '4', seq_pa_user_idx.nextval, '9695b88a59a1610320897fa84cb7e144cc51f2984520efb77111d94b402a8382', '이수만', 'mKW69GEk/R5zCOpWmnCDNQ==', 'WXEtv3m1lrlkG5cjo8kbMw==', '06267', '서울 강남구 강남대로 246', '505호', '1975612', '1', default, default, default, default, default, '0', default);
+
+
+
+commit;
 
 -- ***** ////////////////////////////////////////////////// pa_category ////////////////////////////////////////////////// ***** --
 

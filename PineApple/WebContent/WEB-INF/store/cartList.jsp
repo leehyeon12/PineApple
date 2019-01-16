@@ -603,7 +603,7 @@ a {
                <div class="cart_container">
                   <div class="title_box">
                      <h1>장바구니 
-                        <span class="tx_num">1</span>
+                        <span class="tx_num">2</span>
                      </h1>
                      <ul class="step_list">
                         <li class="on"><span class="hide">현재단계</span><span class="step_num tx_num">1</span> 장바구니</li><!-- 현재단계 li에 클래스 on과 <span class="hide">현재단계</span> 넣어주세요 -->
@@ -637,7 +637,7 @@ a {
                      
                      
                      
-                  <c:forEach var="cartvo" items="cartList"> 
+                 <!--  <c:forEach var="cartvo" items="cartList">  -->
                         <tr>
                            <td>
                               <div class="tbl_cell w40">
@@ -647,37 +647,25 @@ a {
                            <td>
                               <div class="tbl_cell w390">
                                  <a class="prd_img" href="#" style="position: absolute; padding-top: 10px;">   
-                                    <img class="completed-seq-lazyload" id="cart_prodImg" alt="상품이미지" src="https://image.oliveyoung.co.kr/uploads/images/goods/220/10/0000/0001/A00000001332201ko.jpg?l=ko">
+                                    <img class="completed-seq-lazyload" id="cart_prodImg" alt="상품이미지" src="/SEMI/images/macbook_pro.png">
                                  </a>
                                  <div class="prd_info">
                                     <a class="prd_name" href="">
-                                       <span id="brandNm">${cartvo.brName} </span>
-                                       <p id="goodsNm">옵션 => [램 : ${cartvo.ramName}], [저정장치 : ${cartvo.storageName}], [운영체제 : ${cartvo.osName}]</p>
+                                       <span id="brandNm">맥북 프로 레티나</span>
+                                       <p id="goodsNm">옵션 => [램 : RAM 8GB], [저정장치 : SSD 256GB], [운영체제 : Macintosh]</p>
                                     </a>
                                  </div>
                               </div>
                            </td>
                            <td>
                               <div class="tbl_cell w110">
-                                 <span class="cur_price"><span class="tx_num">${cartvo.price}</span>원</span>
+                                 <span class="cur_price"><span class="tx_num">2,500,000</span>원</span>
                               </div>
                            </td>
                            <td>
                               <div class="tbl_cell w100">
                                  <div class="prd_cnt">
-                                    <select class="amount" name="s_amount">
-                                       <option value="1" selected="selected">1</option>
-                                       <option value="2">2</option>
-                                       <option value="3">3</option>
-                                       <option value="4">4</option>
-                                       <option value="5">5</option>
-                                       <option value="6">6</option>
-                                       <option value="7">7</option>
-                                       <option value="8">8</option>
-                                       <option value="9">9</option>
-                                       <option value="10">10</option>
-                                       <option value="10+">10+</option>
-                                    </select>               
+                                    <input type="number" value="1">              
                                  </div>
                                  <button type="button" class="btnSmall wGray" style="display: none;" name="btnQtyMod"><span>변경</span></button>
                               </div>
@@ -686,7 +674,7 @@ a {
                               <div class="tbl_cell w110">
                                  <span class="org_price">
                                  </span>
-                                 <span class="pur_price"><span class="tx_num">19,800</span>원</span>
+                                 <span class="pur_price"><span class="tx_num">2,350,000</span>원</span>
                               </div>
                            </td>
                            <td>
@@ -708,13 +696,7 @@ a {
                               </div>
                            </td>
                         </tr>
-                        </c:forEach>   
-                     
-                     
-                     
-                     
-                     
-                     
+                      <!--   </c:forEach>  -->  
                      
                      
                         <tr>
@@ -726,12 +708,12 @@ a {
                            <td>
                               <div class="tbl_cell w390">
                                  <a class="prd_img" href="#" style="position: absolute; padding-top: 10px;">   
-                                    <img class="completed-seq-lazyload" id="cart_prodImg" alt="상품이미지" src="https://image.oliveyoung.co.kr/uploads/images/goods/220/10/0000/0001/A00000001332201ko.jpg?l=ko">
+                                    <img class="completed-seq-lazyload" id="cart_prodImg" alt="상품이미지" src="/SEMI/images/logitec.jpg">
                                  </a>
                                  <div class="prd_info">
                                     <a class="prd_name" href="">
-                                       <span id="brandNm">더블유드레스룸 </span>
-                                       <p id="goodsNm">W.DRESSROOM 네추럴 소이 캔들 No.272 로즈부케 200g </p>
+                                       <span id="brandNm">로지텍  G102</span>
+                                       <p id="goodsNm">옵션 => [없음]</p>
                                     </a>
                                  </div>
                               </div>
@@ -744,7 +726,8 @@ a {
                            <td>
                               <div class="tbl_cell w100">
                                  <div class="prd_cnt">
-                                    <select class="amount" name="s_amount">
+                                   <input type="number" value="1">     
+                                   <!--  <select class="amount" name="s_amount">
                                        <option value="1" selected="selected">1</option>
                                        <option value="2">2</option>
                                        <option value="3">3</option>
@@ -756,7 +739,7 @@ a {
                                        <option value="9">9</option>
                                        <option value="10">10</option>
                                        <option value="10+">10+</option>
-                                    </select>               
+                                    </select>     -->           
                                  </div>
                                  <button type="button" class="btnSmall wGray" style="display: none;" name="btnQtyMod"><span>변경</span></button>
                               </div>
@@ -796,20 +779,20 @@ a {
                         <button type="button" class="btnSmall wGray type2" id="partDelBtn1" name="partDelBtn"><span>선택상품 삭제</span></button> 
                         <button type="button" class="btnSmall wGray type2" id="soldOutDelBtn1" name="soldOutDelBtn"><span>품절상품 삭제</span></button>
                      </div>
-                     <div class="sum_price">총 판매가 <span class="tx_num">19,800</span>원 <span class="tx_sign minus">-</span> 총 할인금액 <span class="tx_num">0</span>원 <span class="tx_sign plus">+</span> 배송비 <span class="tx_num">2,500</span>원 <span class="tx_sign equal">=</span> <span class="tx_total_price">총 결제금액 <span class="tx_price"><span class="tx_num">22,300</span>원</span></span></div>
+                     <div class="sum_price">총 판매가 <span class="tx_num">2,519,800</span>원 <span class="tx_sign minus">-</span> 총 할인금액 <span class="tx_num">0</span>원 <span class="tx_sign plus">+</span> 배송비 <span class="tx_num">2,500</span>원 <span class="tx_sign equal">=</span> <span class="tx_total_price">총 결제금액 <span class="tx_price"><span class="tx_num">22,300</span>원</span></span></div>
                   </div>
                   
                   <div class="total_price_info">
                      <div class="detail_price">
-                        <p>총 판매가<span><span class="tx_num">19,800</span>원</span></p>
+                        <p>총 판매가<span><span class="tx_num">2,519,800</span>원</span></p>
                         <span class="tx_sign2 minus">-</span>
-                        <p class="tx_sale">총 할인금액<span><span class="tx_num">0</span>원</span></p>
+                        <p class="tx_sale">총 할인금액<span><span class="tx_num">150,000</span>원</span></p>
                         <span class="tx_sign2 plus">+</span>
                         <p>배송비 <span><span class="tx_num">2,500</span>원</span></p>
                      </div>   
                      <div class="sum_price">
                         <span class="tx_text">배송비는 쿠폰할인금액에 따라 변경될 수 있습니다.</span>
-                        총 결제예상금액 <span class="tx_price"><span class="tx_num">22,300</span>원</span></div>   
+                        총 결제예상금액 <span class="tx_price"><span class="tx_num">2,372,300</span>원</span></div>   
                   </div>
                   
                   <div class="order_btn_area order_cart">

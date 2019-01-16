@@ -1,4 +1,4 @@
-/*°ü¸®ÀÚ¸Þ´º ¾ÆÄÚµð¾ð*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸Þ´ï¿½ ï¿½ï¿½ï¿½Úµï¿½ï¿½*/
 .sub-tit {
 	margin-top:5px;
 }
@@ -47,7 +47,7 @@
 	font-size:16px;
 }
 
-/*µî±Þ ¹öÆ°*/
+/*ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°*/
 .grade-bronze{
 	border:1px solid rgba(119,88,67,0.4);
 	background:rgba(119,88,67,0.4);
@@ -58,9 +58,29 @@
 	font-weight:bold;
 }
 
-.grade-vvip{
-	border:1px solid rgba(249,224,99,0.9);
-	background:rgba(249,224,99,0.9);
+.grade-silver{
+	border:1px solid rgba(207,210,211,0.4);
+	background:rgba(207,210,211,0.4);
+	border-radius:3px;
+	padding:3px;
+	font-size:13px;
+	color:black;
+	font-weight:bold;
+}
+
+.grade-gold{
+	border:1px solid rgba(232,194,92,0.9);
+	background:rgba(232,194,92,0.9);
+	border-radius:3px;
+	padding:3px 10px;
+	font-size:13px;
+	color:black;
+	font-weight:bold;
+}
+
+.grade-vip{
+	border:1px solid rgba(14,140,228,0.9);
+	background:rgba(14,140,228,0.9);
 	border-radius:3px;
 	padding:3px 10px;
 	font-size:13px;
@@ -68,7 +88,17 @@
 	font-weight:bold;
 }
 
-/*¸ð´Þ*/
+.grade-vvip{
+	border:1px solid rgba(247,32,32,0.4);
+	background:rgba(247,32,32,0.4);
+	border-radius:3px;
+	padding:3px 10px;
+	font-size:13px;
+	color:#fff;
+	font-weight:bold;
+}
+
+/*ï¿½ï¿½ï¿½*/
 .modal {
        text-align: center;
 }
@@ -187,7 +217,7 @@ p a:hover::after
    opacity: 0.2;
 }
 
-/*thead°¡ ÀÖÀ» ¶§*/
+/*theadï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½*/
 table.popTable1{
    table-layout:fixed;
    width:100%;
@@ -214,7 +244,7 @@ table.popTable1 tbody th{
    font-size:12px;
 }
 
-/*thead°¡ ¾øÀ» ¶§*/
+/*theadï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½*/
 table.popTable2{
    table-layout:fixed;
    width:99%;
@@ -257,7 +287,7 @@ table.popTable2 select option:hover {
     color: #fff;
 }
 
-/*popup h3 : ¸ð´ÞÃ¢ Á¦¸ñ*/
+/*popup h3 : ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½*/
 .popup h3{
     background: url(/SEMI/images/bl-h3.png) left 3px no-repeat;
     font-weight: 800;
@@ -266,7 +296,7 @@ table.popTable2 select option:hover {
     font-size: 15px;
 }
 
-/*°ü¸®ÀÚ »óÇ° ¸ñ·Ï*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç° ï¿½ï¿½ï¿½*/
 .prod-box{
 	margin: 30px;
     border: 1px solid #dadada;
@@ -349,7 +379,7 @@ table.popTable2 select option:hover {
 	color:#0e8ce4;
 }
 
-/*»ö»ó¼±ÅÃ ¸ð´ÞÃ¢*/
+/*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ã¢*/
 td.color-code:hover{
     background-color: rgba(54,66,72,0.3);
 }

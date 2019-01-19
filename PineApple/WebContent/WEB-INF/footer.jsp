@@ -14,7 +14,7 @@
 						</div>
 						<div class="footer_contact_text">
 							<p>서울 중구 남대문로 120 대일빌딩 3층</p>
-						</div>
+						</div> 
 						<div class="footer_social">
 							<ul>
 								<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>

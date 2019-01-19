@@ -1,3 +1,0 @@
-﻿C:\myjsp\.metadata\.plugins\org.eclipse.core.runtime\.settings 에서
-org.eclipse.jst.server.tomcat.core.prefs 파일과
-org.eclipse.wst.server.core.prefs 파일과 삭제하고서 다시 시도하면 된다.

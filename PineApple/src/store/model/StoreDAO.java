@@ -427,9 +427,12 @@ public class StoreDAO implements InterStoreDAO {
 			pstmt.setString(2, map.get("IDX"));
 			
 			rs = pstmt.executeQuery();	
-			rs.next(); 
-			int cartNo = rs.getInt("cartNo");
-				
+			int cartNo = 0;
+			
+			if(rs.next()) {
+				rs.next(); 
+				cartNo = rs.getInt("cartNo");
+			}
 
 			sql = "merge into pa_cartList\n"
 			    + "using dual\n"

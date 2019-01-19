@@ -24,9 +24,8 @@ public class CartListAction extends AbstractController {
 		InterStoreDAO sdao =  new StoreDAO();
 
 		// *** 페이징 처리 하기 이전의 장바구니 목록 보여주기 *** //
-		List<CartVO> cartList = sdao.getCartList(loginuser.getUserid());
-		System.out.println("cartList => "+cartList);
-		req.setAttribute("cartList", cartList); // #없으면 cartList의 리턴값이 null이 나온다.
+		List<CartVO> cartList = sdao.getCartList(loginuser.getUserid()); // System.out.println("cartList => "+cartList);
+		req.setAttribute("cartList", cartList);
 		
 		super.setRedirect(false);
 		super.setViewPage("/WEB-INF/store/cartList.jsp");

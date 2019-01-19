@@ -82,7 +82,9 @@
 										<c:set var="cartTotalPrice" value="0" />
 										<c:set var="cartTotalPoint" value="0" />
 
-										<c:forEach var="cartvo" items="${cartList}">
+										<c:forEach var="cartvo" items="${cartList}" varStatus="status">
+											<c:set var="cartTotalPrice" value="${cartTotalPrice + cartvo.storeitem.totalPrice}" />
+											
 											<tr>
 												<td>
 													<div class="tbl_cell w40">
@@ -117,7 +119,7 @@
 												<td>
 													<div class="tbl_cell w100">
 														<div class="prd_cnt">
-															<input type="number" value="1">
+															<input type="number" value="${cartvo.oqty}">
 														</div>
 														<button type="button" class="btnSmall wGray"
 															style="display: none;" name="btnQtyMod">
@@ -176,7 +178,7 @@
 									</button>
 								</div>
 								<div class="sum_price">
-									총 판매가 <span class="tx_num">2,519,800</span>원 <span
+									총 판매가 <span class="tx_num"><fmt:formatNumber value="${cartTotalPrice}" pattern="###,###" /></span>원 <span
 										class="tx_sign minus">-</span> 총 할인금액 <span class="tx_num">0</span>원
 									<span class="tx_sign plus">+</span> 배송비 <span class="tx_num">2,500</span>원
 									<span class="tx_sign equal">=</span> <span

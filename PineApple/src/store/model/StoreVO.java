@@ -23,14 +23,17 @@ public class StoreVO {
 	private int pqty;				// 상품 재고량
 	private String inputdate; 		// 상품 입고일자
 	private String status; 			// 상품 상태 
-	
+
+	private int totalPrice;   // 주문량 * 제품판매가(할인해서 팔 것이므로)
+	private int totalPoint;   // 주문량 * 포인트점수
+
 	public StoreVO() {}
 
 	public StoreVO(int idx, String categoryCode_fk, String brCode_fk, String brName, String name, String cpu,
 			String inch, String ramCode_fk, String ramName, String storageCode_fk, String storageName, String osCode_fk,
 			String osName, int price, int saleprice, String image1, String image2, String content, int pqty,
 			String inputdate, String status) {
-		
+
 		this.idx = idx;
 		this.categoryCode_fk = categoryCode_fk;
 		this.brCode_fk = brCode_fk;
@@ -221,6 +224,19 @@ public class StoreVO {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
+
+	public void setTotalPriceTotalPoint(int oqty) {
+		 // 총판매가(실제판매가 * 주문량) 입력하기
+		 totalPrice = saleprice * oqty;
+	}
+	 
+	public int getTotalPrice() {
+		 return totalPrice;
+	}
+	 
+	public int getTotalPoint() {
+		 return totalPoint;
+	}
+
+
 } // end of class StoreVO

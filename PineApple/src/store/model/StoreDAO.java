@@ -506,6 +506,7 @@ public class StoreDAO implements InterStoreDAO {
 					cartList = new ArrayList<CartVO>();
 				}
 				
+				int cartCnt = rs.getInt("cartCnt");
 				int cartno = rs.getInt("cartno");
 				String fk_userid = rs.getString("fk_userid");
 				int fk_pnum = rs.getInt("fk_pnum");
@@ -527,7 +528,6 @@ public class StoreDAO implements InterStoreDAO {
 				String image1 = rs.getString("image1");
 				int pqty = rs.getInt("pqty");
 				String status = rs.getString("status");
-				int cartCnt = rs.getInt("cartCnt");
 			
 				UserVO useritem = new UserVO();
 				useritem.setGradeCode_fk(gradeCode_fk);
@@ -546,22 +546,8 @@ public class StoreDAO implements InterStoreDAO {
 				storeitem.setImage1(image1);
 				storeitem.setPqty(pqty);
 				storeitem.setStatus(status);
+				storeitem.setTotalPriceTotalPoint(oqty);
 				
-			/*	
-				item.setIdx(fk_pnum);
-				item.setName(pname);; // #장바구니에는 pname이 없다.(ProductVO에 있는 것)
-				item.setPcategory_fk(pcategory_fk); // #join해서 읽어온 게 있다.
-				item.setPimage1(pimage1);
-				item.setPrice(price);
-				item.setSaleprice(saleprice);
-				item.setPoint(point);
-						
-				// !!!!!!!! 중요함 !!!!!!!! //
-				item.setTotalPriceTotalPoint(oqty); // #주문량 넣어줘야만 실제로 주문하는 순간, TotalPrice 및 TotalPoint와 코인액 포인트 있나 없나 비교 가능! 비교되면 또 차감해야되지
-				// !!!!!!!! 중요함 !!!!!!!! //
-				
-				item.setPqty(pqty);
-			*/	
 				CartVO cvo = new CartVO(); // #제품이름과 이미지는 안담았다. 여기에
 				cvo.setCartNo(cartno); // #insert되어진 것을 join해서 읽어오고 있다.
 				cvo.setFk_userid(fk_userid);

@@ -9,6 +9,14 @@
 
  <style type="text/css">
  	.discount {text-align: center;}
+ 	
+ 	.mainTitle{
+ 		font-size:24px;
+ 		font-weight:500;
+ 		margin-bottom:-10px;
+ 		padding:0;
+ 		left:0;
+ 	}
  </style>
  
  <script src="js/jquery-3.3.1.min.js"></script>
@@ -357,222 +365,55 @@
 			</div>
 		</div>
 	</div>
-
 	
-
-	
-
-	<!-- Hot New Arrivals -->
-
-	<div class="new_arrivals" id="HIT">
-		<div class="container">
-			<div class="row">
-				<div class="col">
-					<div class="tabbed_container">
-						<div class="tabs clearfix tabs-right">
-							<div class="new_arrivals_title">HIT</div>
-							<ul class="clearfix">
-								<li class="active">데스크탑</li>
-								<li>노트북</li>
-								<li>모니터</li>
-								<li>주변기기</li>
-							</ul>
-							<div class="tabs_line"><span></span></div>
-						</div>
-						<div class="row">
-							<div class="col-lg-12" style="z-index:1;">
-
-								<!-- Product Panel -->
-								<div class="product_panel panel active">
-									<div class="arrivals_slider slider">
-	
-										<c:if test="${ hitList.desktopList == null }">
-											<!-- Slider Item -->
-											<div class="featured_slider_item">
-												<div class="product_price discount">상품 준비중 입니다.</div>
-											</div>
-										</c:if>
-										
-										<c:if test="${ hitList.desktopList != null }">
-											<c:forEach var="svo" items="${ hitList.desktopList }">
-												<!-- Slider Item -->
-												<div class="featured_slider_item">
-													<div class="border_active"></div>
-													<div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center" style="cursor: default;">
-														<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/deals.jpg" alt="" width="80%"></div>
-														<div class="product_content">
-															<div class="product_price discount">
-																<fmt:formatNumber value="${svo.saleprice}" pattern="###,###" />원<br/>
-																<c:if test="${ svo.percent != 0 }">
-																	<span style="text-decoration: line-through;"><fmt:formatNumber value="${svo.price}" pattern="###,###" />원</span>
-																</c:if>
-															</div>
-															<div class="product_name"><div>${ svo.pname }</div></div>
-															<div class="product_extras">
-																<button class="product_cart_button" onclick="javascript:location.href = 'prodView.do?pnum=${ svo.pnum }'">보러가기</button>
-															</div>
-														</div>
-														<c:if test="${ svo.percent != 0 }">
-															<ul class="product_marks">
-																<li class="product_mark product_discount">${ svo.percent }%</li>
-															</ul>
-														</c:if>
-													</div>
-												</div>
-											</c:forEach>
-										</c:if>
-										
-										
-										
-									</div>
-									<div class="featured_slider_dots_cover"></div>
-								</div>
-									
-								<!-- Product Panel -->
-								<div class="product_panel panel">
-									<div class="arrivals_slider slider">
-	
-										<c:if test="${ hitList.laptopList == null }">
-											<!-- Slider Item -->
-											<div class="featured_slider_item">
-												<div class="product_price discount">상품 준비중 입니다.</div>
-											</div>
-										</c:if>
-										
-										<c:if test="${ hitList.laptopList != null }">
-											<c:forEach var="svo" items="${ hitList.laptopList }">
-												<!-- Slider Item -->
-												<div class="featured_slider_item">
-													<div class="border_active"></div>
-													<div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center" style="cursor: default;">
-														<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/deals.jpg" alt="" width="80%"></div>
-														<div class="product_content">
-															<div class="product_price discount">
-																<fmt:formatNumber value="${svo.saleprice}" pattern="###,###" />원<br/>
-																<c:if test="${ svo.percent != 0 }">
-																	<span style="text-decoration: line-through;"><fmt:formatNumber value="${svo.price}" pattern="###,###" />원</span>
-																</c:if>
-															</div>
-															<div class="product_name"><div>${ svo.pname }</div></div>
-															<div class="product_extras">
-																<button class="product_cart_button" onclick="javascript:location.href = 'prodView.do?pnum=${ svo.pnum }'">보러가기</button>
-															</div>
-														</div>
-														<c:if test="${ svo.percent != 0 }">
-															<ul class="product_marks">
-																<li class="product_mark product_discount">${ svo.percent }%</li>
-															</ul>
-														</c:if>
-													</div>
-												</div>
-											</c:forEach>
-										</c:if>
-										
-									</div>
-									<div class="featured_slider_dots_cover"></div>
-								</div>
-	
-								<!-- Product Panel -->
-								<div class="product_panel panel">
-									<div class="arrivals_slider slider">
-	
-										<c:if test="${ hitList.monitorList == null }">
-											<!-- Slider Item -->
-											<div class="featured_slider_item">
-												<div class="product_price discount">상품 준비중 입니다.</div>
-											</div>
-										</c:if>
-										
-										<c:if test="${ hitList.monitorList != null }">
-											<c:forEach var="svo" items="${ hitList.monitorList }">
-												<!-- Slider Item -->
-												<div class="featured_slider_item">
-													<div class="border_active"></div>
-													<div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center" style="cursor: default;">
-														<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/deals.jpg" alt="" width="80%"></div>
-														<div class="product_content">
-															<div class="product_price discount">
-																<fmt:formatNumber value="${svo.saleprice}" pattern="###,###" />원<br/>
-																<c:if test="${ svo.percent != 0 }">
-																	<span style="text-decoration: line-through;"><fmt:formatNumber value="${svo.price}" pattern="###,###" />원</span>
-																</c:if>
-															</div>
-															<div class="product_name"><div>${ svo.pname }</div></div>
-															<div class="product_extras">
-																<button class="product_cart_button" onclick="javascript:location.href = 'prodView.do?pnum=${ svo.pnum }'">보러가기</button>
-															</div>
-														</div>
-														<c:if test="${ svo.percent != 0 }">
-															<ul class="product_marks">
-																<li class="product_mark product_discount">${ svo.percent }%</li>
-															</ul>
-														</c:if>
-													</div>
-												</div>
-											</c:forEach>
-										</c:if>
-										
-									</div>
-									<div class="featured_slider_dots_cover"></div>
-								</div>
-								
-								<!-- Product Panel -->
-								<div class="product_panel panel">
-									<div class="arrivals_slider slider">
-	
-										<c:if test="${ hitList.otherList == null }">
-											<!-- Slider Item -->
-											<div class="featured_slider_item">
-												<div class="product_price discount">상품 준비중 입니다.</div>
-											</div>
-										</c:if>
-										
-										<c:if test="${ hitList.otherList != null }">
-											<c:forEach var="svo" items="${ hitList.otherList }">
-												<!-- Slider Item -->
-												<div class="featured_slider_item">
-													<div class="border_active"></div>
-													<div class="product_item discount d-flex flex-column align-items-center justify-content-center text-center" style="cursor: default;">
-														<div class="product_image d-flex flex-column align-items-center justify-content-center"><img src="images/deals.jpg" alt="" width="80%"></div>
-														<div class="product_content">
-															<div class="product_price discount">
-																<fmt:formatNumber value="${svo.saleprice}" pattern="###,###" />원<br/>
-																<c:if test="${ svo.percent != 0 }">
-																	<span style="text-decoration: line-through;"><fmt:formatNumber value="${svo.price}" pattern="###,###" />원</span>
-																</c:if>
-															</div>
-															<div class="product_name"><div>${ svo.pname }</div></div>
-															<div class="product_extras">
-																<button class="product_cart_button" onclick="javascript:location.href = 'prodView.do?pnum=${ svo.pnum }'">보러가기</button>
-															</div>
-														</div>
-														<c:if test="${ svo.percent != 0 }">
-															<ul class="product_marks">
-																<li class="product_mark product_discount">${ svo.percent }%</li>
-															</ul>
-														</c:if>
-													</div>
-												</div>
-											</c:forEach>
-										</c:if>
-										
-									</div>
-									<div class="featured_slider_dots_cover"></div>
-								</div>
-
-							</div>
-
-						</div>
-								
-					</div>
-				</div>
+	<div class="mainReview" style="margin-bottom:20px;">
+		<div class="container" style="padding:0;">
+			<div class="mainTitle">
+				REVIEW
 			</div>
-		</div>		
+			<table class="table table-hover" style="margin: 13px 0 50px 0; text-align: center;">
+				<thead class="container-fluid">
+					<tr class="row">
+						<th style="color: #0e8ce4;" class="col-md-1">별점</th>
+						<th style="color: #0e8ce4;" class="col-md-2">제품명</th>
+						<th style="color: #0e8ce4;" class="col-md-4" style="margin-left:10px;">리뷰제목</th>
+						<th style="color: #0e8ce4;" class="col-md-1">작성자</th>
+						<th style="color: #0e8ce4;" class="col-md-3">리뷰작성일</th>
+						<th style="color: #0e8ce4;" class="col-md-1">조회수</th>
+					</tr>
+				</thead>
+	
+				<tbody class="container-fluid">
+					<tr class="row">
+						<td class="td" class="col-md-1">ㅇ</td>
+						<td class="td name" class="col-md-2">ㅇ</td>
+						<%--  자바스크립트에서 페이지이동은 location.href="이동해야할 페이지명"; 으로 한다. --%>
+						<td class="td" class="col-md-4">ㅇ</td>
+						<td class="td" class="col-md-1">ㅇ</td>
+						<td class="td" class="col-md-3">ㅇ</td>
+						<td class="td" class="col-md-1">ㅇ</td>
+					</tr>
+				</tbody>
+	
+				<%-- 페이징 처리용 --%>
+				<tfoot class="container-fluid">
+					<tr class="row">
+						<td class="col-md-3"></td>
+						<td class="col-md-5">페이지</td>
+						<td class="col-md-4" style="color: #0e8ce4;">현재[<span
+							style="color: #FF6347;">${currentShowPageNo}</span>]페이지 /
+							총[${totalPage}]페이지 &nbsp; 회원수 : 총 ${totaluserCount}명
+						</td>
+					</tr>
+				</tfoot>
+	
+			</table>
+		</div>
 	</div>
-
+	
 	<!-- Best Sellers -->
 
-	<div class="best_sellers" id="NEW">
+	<div class="best_sellers" id="NEW" style="margin-top:50px;">
 		<div class="container">
 			<div class="row">
 				<div class="col">

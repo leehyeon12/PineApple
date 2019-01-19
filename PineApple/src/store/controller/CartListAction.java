@@ -16,7 +16,7 @@ public class CartListAction extends AbstractController {
 
 	@Override
 	public void execute(HttpServletRequest req, HttpServletResponse res) 
-		throws Exception {
+		throws Exception { // 깃테스트
 
 		HttpSession session = req.getSession();
 		UserVO loginuser = (UserVO)session.getAttribute("loginuser");

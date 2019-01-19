@@ -12,6 +12,8 @@ public class CartVO {
 	private String ssdOption;
 	private String windowOption;
 	
+	private int cartCnt;
+
 	private UserVO useritem;
 	private	StoreVO storeitem;	// 제품정보 객체 #pnum만 알면 다 꺼내올 수 있다.
 	
@@ -85,6 +87,14 @@ public class CartVO {
 
 	public void setWindowOption(String windowOption) {
 		this.windowOption = windowOption;
+	}
+	
+	public int getCartCnt() {
+		return cartCnt;
+	}
+
+	public void setCartCnt(int cartCnt) {
+		this.cartCnt = cartCnt;
 	}
 
 	public UserVO getUseritem() {

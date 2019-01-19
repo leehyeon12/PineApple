@@ -483,7 +483,7 @@ public class StoreDAO implements InterStoreDAO {
 		try {
 			conn = ds.getConnection();
 			
-			String sql = "select cartno, fk_userid, fk_pnum, oqty, ramoption, ssdoption, windowoption"
+			String sql = "select COUNT(*)OVER() as cartCnt, cartno, fk_userid, fk_pnum, oqty, ramoption, ssdoption, windowoption"
 					   + "	   , gradecode_fk, A.name, brname, P.name AS pname, cpu, inch, ramname, storagename, osname"
 					   + "	   , price, saleprice, image1, pqty, status\n"
 					   + "from\n"
@@ -527,6 +527,7 @@ public class StoreDAO implements InterStoreDAO {
 				String image1 = rs.getString("image1");
 				int pqty = rs.getInt("pqty");
 				String status = rs.getString("status");
+				int cartCnt = rs.getInt("cartCnt");
 			
 				UserVO useritem = new UserVO();
 				useritem.setGradeCode_fk(gradeCode_fk);
@@ -569,6 +570,7 @@ public class StoreDAO implements InterStoreDAO {
 				cvo.setRamOption(ramOption);
 				cvo.setSsdOption(ssdOption);
 				cvo.setWindowOption(windowOption);
+				cvo.setCartCnt(cartCnt);
 				
 				cvo.setUseritem(useritem); // #item, 즉 ProductVO를 담아야 한다. ProductVO를 하나 만들어야지
 				cvo.setStoreitem(storeitem);

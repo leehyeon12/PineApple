@@ -29,15 +29,17 @@
 					<div class="cart_container">
 						<div class="title_box">
 							<h1>
-								장바구니 <span class="tx_num">2</span>
+								장바구니 <span class="tx_num">${cartCnt}</span>
 							</h1>
 							<ul class="step_list">
 								<li class="on"><span class="hide">현재단계</span><span
 									class="step_num tx_num">1</span> 장바구니</li>
 								<!-- 현재단계 li에 클래스 on과 <span class="hide">현재단계</span> 넣어주세요 -->
 								<li><span class="step_num tx_num">2</span> 주문/결제</li>
-								<li class="last"><span class="step_num tx_num">3 </span>
-									주문완료</li>
+								<li class="last">
+									<span class="step_num tx_num">3 </span>
+									주문완료
+								</li>
 							</ul>
 						</div>
 
@@ -55,8 +57,7 @@
 								</colgroup>
 								<thead>
 									<tr>
-										<th scope="col"><input type="checkbox" id="inp_allRe1"
-											name="" value=""></th>
+										<th scope="col"><input type="checkbox" id="inp_allRe1" name="" value=""></th>
 										<th scope="col">상품정보</th>
 										<th scope="col">판매가</th>
 										<th scope="col">수량</th>
@@ -69,9 +70,11 @@
 								<tbody>
 									<c:if test="${cartList == null || empty cartList}">
 										<tr>
-											<td colspan="6" align="center"><span
-												style="color: red; font-weight: bold;"> 장바구니에 담긴 상품이
-													없습니다. </span></td>
+											<td colspan="6" align="center">
+												<span style="color: red; font-weight: bold;"> 
+													장바구니에 담긴 상품이 없습니다.
+												</span>
+											</td>
 										</tr>
 									</c:if>
 

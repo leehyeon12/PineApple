@@ -1874,7 +1874,7 @@ input {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     word-break: normal;
-    font-size: 14px;
+    font-size: 12px;
     line-height: 18px;
     color: #000;
 }
@@ -2069,7 +2069,7 @@ a {
 
 .total_price_info .detail_price > p {
     float: left;
-    width: 340px;
+    width: 380px;
     height: 110px;
     padding: 20px 0 0;
     text-align: center;

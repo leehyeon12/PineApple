@@ -24,10 +24,22 @@
 		}
 		
 		$('.chkboxpnum').change(function() {
-			if (this.checked != true) { // 체크가 false 라면
-				getPriceWithCheck();
-			} else { // 체크가 true 라면
-				getPriceWithCheck();
+			var checklength = $('input:checkbox[name="fk_pnum"]:checked').length;
+			
+			if(checklength <= 0 ){
+				$(".noDiscountTotal").text(0);
+				$(".discountTotal").text(0);
+				$(".totalDelivery").text(0);
+				$(".totalPayment").text(0);
+			} else {
+				if (this.checked != true) { 
+					// 체크가 false라면
+					getPriceWithCheck();
+				
+				} else { 
+					// 체크가 true라면
+					getPriceWithCheck();
+				}
 			}
 		});
 
@@ -44,9 +56,13 @@
 		var bool = $("#allCheckOrNone").is(':checked');
 
 		$(".chkboxpnum").prop('checked', bool);
-
-		if (this.checked != true) { // 체크가 false 라면
-			return;
+		
+		if (bool == false) { 
+			// 체크가 false 라면
+			$(".noDiscountTotal").text(0);
+			$(".discountTotal").text(0);
+			$(".totalDelivery").text(0);
+			$(".totalPayment").text(0);
 		} else { // 체크가 true 라면
 			getPriceWithCheck();
 		}
@@ -63,18 +79,15 @@
 			if ($(this).is(':checked')) {
 				var saleprice = $(this).attr("data-price");
 				var curPrice = $(this).closest("tr").find("td div span.cur_price").attr("data-cur");
-				
-				//할인가
-				var discountP = curPrice - saleprice;
-				
+								
 				//원 구매가
 				var originArr = curPrice.split(',');
 				var origin = originArr.join('');
 				
 				//실 구매가
 				var saleArr = saleprice.split(',');
-				var sale = saleArr.join('');
-
+				var sale = saleArr.join(''); 
+				
 				origintotalprice += parseInt(origin);
 				sumtotalprice += parseInt(sale);
 				
@@ -89,10 +102,7 @@
 				$(".discountTotal").text(numberWithCommas(totalDiscount));
 				$(".totalDelivery").text(numberWithCommas(delivery));
 				$(".totalPayment").text(numberWithCommas(sumtotalprice+delivery));
-				
-				
-				
-				
+		
 			}
 		});
 	}
